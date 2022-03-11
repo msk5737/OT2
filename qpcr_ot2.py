@@ -64,7 +64,7 @@ def run(protocol: protocol_api.ProtocolContext):
 
 	if loadmastermix:
 		mp20.pick_up_tip() # only using a single set of tips to load mastermix as is same in every well.
-		#Master mix wells
+		#Standard Curve Wells
 		mp20.aspirate(volume_mastermix, reservoir['A1'])
 		mp20.dispense(volume_mastermix, qpcr_plate['B22'])
 		mp20.aspirate(volume_mastermix, reservoir['A1'])
