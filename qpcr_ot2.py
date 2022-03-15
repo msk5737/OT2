@@ -2,7 +2,7 @@ from opentrons import protocol_api
 
 # tweakable settings
 wells_to_load = [1,2,3,4,5,6,7,8,9,10,11,12] # the range of columns to load from the 96 well plate
-
+mm_well = 'A1' # which well of 12-well reservoir is the mastermix in?
 loadmastermix = True #if mastermix is to be loaded from 12-well reservoir or if it has been manually pipetted True/False
 volume_mastermix = 8 # 8ul requires a total of 312 reactions which should be 340 to be safe (340 10x mix, 680 water, 1700 MM).
 volume_template = 2 
@@ -65,11 +65,11 @@ def run(protocol: protocol_api.ProtocolContext):
 	if loadmastermix:
 		mp20.pick_up_tip() # only using a single set of tips to load mastermix as is same in every well.
 		#Standard Curve Wells
-		mp20.aspirate(volume_mastermix, reservoir['A1'])
+		mp20.aspirate(volume_mastermix, reservoir[mm_well])
 		mp20.dispense(volume_mastermix, qpcr_plate['B22'])
-		mp20.aspirate(volume_mastermix, reservoir['A1'])
+		mp20.aspirate(volume_mastermix, reservoir[mm_well])
 		mp20.dispense(volume_mastermix, qpcr_plate['B23'])
-		mp20.aspirate(volume_mastermix, reservoir['A1'])
+		mp20.aspirate(volume_mastermix, reservoir[mm_well])
 		mp20.dispense(volume_mastermix, qpcr_plate['B24'])
 		
 		for i in wells_to_load:			
