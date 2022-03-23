@@ -77,7 +77,7 @@ def run(protocol: protocol_api.ProtocolContext):
 			mp20.dispense(volume_mastermix, qpcr_plate[lookup[str(i)][0]+str(lookup[str(i)][1])])
 			mp20.aspirate(volume_mastermix, reservoir[mm_well])
 			mp20.dispense(volume_mastermix, qpcr_plate[lookup[str(i)][0]+str(lookup[str(i)][1]+1)])
-			mp20.aspirate(volume_mastermix, reservoir[mm_well)
+			mp20.aspirate(volume_mastermix, reservoir[mm_well])
 			mp20.dispense(volume_mastermix, qpcr_plate[lookup[str(i)][0]+str(lookup[str(i)][1]+2)])
 		mp20.drop_tip()
 
